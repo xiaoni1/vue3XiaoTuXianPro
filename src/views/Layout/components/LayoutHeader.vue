@@ -1,4 +1,8 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+//使用pinia中的数据
+import { useCategoryStore } from '@/stores/category'
+const categoryStore = useCategoryStore()
 
 </script>
 
@@ -10,17 +14,8 @@
             </h1>
 
             <ul class="app-header-nav">
-                <li class="home">
-                    <RouterLink to="/">首页</RouterLink>
-                </li>
-                <li class="home">
-                    <RouterLink to="/">居家</RouterLink>
-                </li>
-                <li class="home">
-                    <RouterLink to="/">美食</RouterLink>
-                </li>
-                <li class="home">
-                    <RouterLink to="/">服饰</RouterLink>
+                <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+                    <RouterLink to="/">{{ item.name }}</RouterLink>
                 </li>
             </ul>
 
@@ -54,6 +49,37 @@
       background: url('@/assets/images/logo.png') no-repeat center 18px / contain;
     }
   }
+
+  .app-header-nav {
+  width: 820px;
+  display: flex;
+  padding-left: 40px;
+  position: relative;
+  z-index: 998;
+
+  li {
+    margin-right: 40px;
+    width: 38px;
+    text-align: center;
+
+    a {
+      font-size: 16px;
+      line-height: 32px;
+      height: 32px;
+      display: inline-block;
+
+      &:hover {
+        color: $xtxColor;
+        border-bottom: 1px solid $xtxColor;
+      }
+    }
+
+    .active {
+      color: $xtxColor;
+      border-bottom: 1px solid $xtxColor;
+    }
+  }
+}
 
 
   .search {
