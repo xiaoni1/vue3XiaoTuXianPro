@@ -1,6 +1,14 @@
+<script setup>
+    import LayoutHeaderVue from "./components/LayoutHeader.vue";
+    import LayoutNavVue from "./components/LayoutNav.vue";
+    import LayoutFooterVue from "./components/LayoutFooter.vue"
+</script>
+
 <template>
-    <div>
-        我是首页
-        <RouterView />
-    </div>
+<div>
+    <LayoutHeaderVue />
+    <LayoutNavVue />
+    <RouterView />
+    <LayoutFooterVue />
+</div>
 </template>
