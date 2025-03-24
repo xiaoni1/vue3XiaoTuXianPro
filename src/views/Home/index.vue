@@ -7,7 +7,7 @@
 </script>
 
 <template>
-<div>
+<!-- <div> -->
     <div class="container">
         <HomeCategory />
         <HomeBanner />
@@ -15,5 +15,5 @@
     <HomeNew />
     <HomeHot />
     <HomeProduct />
-</div>
+<!-- </div> -->
 </template>
