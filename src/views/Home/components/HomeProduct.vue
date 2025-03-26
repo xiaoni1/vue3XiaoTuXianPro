@@ -2,6 +2,7 @@
 import HomePanel from './HomePanel.vue'
 import { getGoodsAPI } from '@/apis/home'
 import { ref, onMounted } from 'vue'
+import GoodsItem from './GoodsItem.vue'
 
 const goodsProduct = ref([])
 const getGoods = async() =>{
@@ -27,13 +28,7 @@ onMounted(()=>{
         </RouterLink>
         <ul class="goods-list">
           <li v-for="goods in cate.goods" :key="goods.id">
-          <RouterLink to=“/” class="goods-item">
-            <img v-img-lazy="goods.picture" alt="" />
-            <p class="name ellipsis">{{ goods.name }}</p>
-            <p class="desc ellipsis">{{ goods.desc }}</p>
-            <p class="price ellipsis">&yen;{{ goods.price }}</p>
-          </RouterLink>
-            <!-- <GoodsItem :goods="goods" /> -->
+            <GoodsItem :goods="goods" />
           </li>
         </ul>
       </div>
@@ -118,22 +113,6 @@ onMounted(()=>{
         height: 300px;
         margin-right: 10px;
         margin-bottom: 10px;
-        .name {
-          font-size: 14px;
-          text-align: center;
-          margin-top: 15px;
-        }
-        .desc {
-          font-size: 12px;
-          color: #999;
-          text-align: center;
-        }
-        .price {
-          color: $priceColor;
-          text-align: center;
-          font-size: 14px;
-          font-weight: bold;
-        }
         &:nth-last-child(-n + 4) {
           margin-bottom: 0;
         }
