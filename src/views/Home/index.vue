@@ -7,13 +7,11 @@
 </script>
 
 <template>
-<!-- <div> -->
-    <div class="container">
-        <HomeCategory />
-        <HomeBanner />
-    </div>
-    <HomeNew />
-    <HomeHot />
-    <HomeProduct />
-<!-- </div> -->
+  <div class="container">
+    <HomeCategory />
+    <HomeBanner />
+  </div>
+  <HomeNew />
+  <HomeHot />
+  <HomeProduct />
 </template>

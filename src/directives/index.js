@@ -12,9 +12,11 @@ export const lazyPlugin = {
                 const { stop } = useIntersectionObserver(
                     el, 
                     ([{ isIntersecting }]) =>  {
-                        el.src = binding.value
-                        // 停止监听
-                        stop()
+                        if(isIntersecting) {
+                            el.src = binding.value
+                            // 停止监听
+                            stop()
+                        }
                     }
 
                 )
